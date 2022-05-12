@@ -3,8 +3,9 @@
     margin: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 92%; 
-    /* remove font size to return to normal */
+    font-size: 97%; 
+    /* activate font size to return make aside fit */
+    font-weight: 700;
 }
 
 body {
@@ -17,13 +18,91 @@ body {
                     13rem 1fr;
 }
 
+h2 {
+    font-size: 1.6rem;
+    padding-left: 1.2rem;
+    padding-top: 2rem;
+}
+
+p {
+    color: #7D7F84;
+}
+
+.white-text {
+    color: white;
+}
+
+.white-icon {
+    background-color: white;
+    border-radius: 100%;
+    padding: 2%;
+}
+
+
 
 /* header */
 header {
     grid-area: header;
+    display: grid;
+    grid-template-rows: repeat(autofill, minmax(1fr, 2.5fr));
     background-color: red;
     position: sticky;
     top: 0;
+    right: 0;
+    background-color: black;
+}
+
+.header__button {
+    display: grid;
+    grid-auto-flow: column;
+    place-items: end;
+    width: 100%;
+}
+
+.header__button button {
+    width: 10%;
+    height: 70%;
+    background-color: black;
+    border: solid 1px white;
+    border-radius: 20px;
+}
+
+.header__button a {
+    color: white;
+    text-decoration: none;
+}
+
+.header__nav {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+.header__nav ul {
+        display: grid;
+        column-count: 6;
+        grid-auto-flow: column;
+        place-items: center;
+        list-style: none;
+        min-width: 50%;
+}
+
+.header__nav li {
+    width:6.5rem;
+}
+
+.header__nav__li-spacer {
+    margin-right: 20%;
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: #7D7F84;
+    padding-bottom: 3%;
+}
+
+.header__nav a:hover {
+    border-bottom: solid 2px #ADFF2F;
 }
 
 
@@ -31,17 +110,43 @@ header {
 /* aside */
 aside {
     grid-area: aside;
+    /* display: grid;
+    grid-template-rows: repeat(auto); */
     background-color: black;
     position: sticky;
     top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+aside a {
+    text-decoration: none;
+    color: #7D7F84;
+}
+
+                    /* tried grouping these 3 into 1 but didn't work */
+.aside__nav a:hover { 
+    border-left: solid 2px #ADFF2F;
+} 
+
+.aside__playlist a:hover {
+    border-left: solid 2px #ADFF2F;
+}
+
+.aside__install a:hover {
+    border-left: solid 2px #ADFF2F;
 }
 
 .aside__home {
     padding: 1rem 3rem 0 1rem;
 }
 
+.aside__home img {
+    width: 90%;
+}
+
 .aside__nav {
-    padding: 1.25rem 3rem 0 1rem;
+    padding: 1.25rem 3rem 0 0;
 }
 
 .aside__nav ul {
@@ -54,40 +159,38 @@ aside {
     text-decoration: none;
 }
 
-aside a {
-    text-decoration: none;
-    color: #7D7F84;
-}
-
 .aside__nav a {
     text-decoration: none;
     color: #7D7F84;
     display: flex;
     align-items: center;
     gap: 0.4rem;
+    padding-left: 1rem;
 }
 
 .aside__nav img {
-    width: 1.6rem;
+    width: 1.5rem;
 }
 
 aside h3 {
     color: white;
     margin-bottom: 1rem;
+    padding-left: 1rem;
 }
 
 .aside__playlist {
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 0;
 }
 
 .aside__playlist a {
     display: flex;
     align-items: center;
     gap: 0.8rem;
+    padding-left: 1rem;
 }
 
 .aside__playlist img {
-    width: 2.3rem;
+    width: 2rem;
     background-color: #7D7F84;
 }
 
@@ -96,6 +199,10 @@ aside h3 {
     list-style: none;
     line-height: 2.2rem;
     margin-top: 1rem;
+}
+
+.aside__install {
+
 }
 
 .aside__install a {
@@ -130,7 +237,57 @@ aside h3 {
 /* main */
 main {
     grid-area: main;
-    background-color: green;
+    background-color: black;
+    padding: 0 2rem 2rem 2rem;
+}
+
+main img {
+    width: 9rem;
+}
+
+main p {
+    padding-left: 1.2rem;
+}
+
+.recentlyPlayed {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(autofill, minmax(10rem, 1fr));
+    width: 80%;
+    margin-top: 1rem;
+    /* min-height: 15rem;
+    max-height: 100rem; */
+}
+
+.album {
+    display: grid;
+    place-items: center;
+    height: 12rem;
+}
+
+.forSamuelThomas {
+    display: grid;
+    grid-auto-flow: column;
+    width: 27%;
+    margin-top: 1rem;
+    /* min-height: 15rem;
+    max-height: 100rem; */
+    place-items:center;
+}
+
+.popularArtists {
+    display: grid;
+    grid-auto-flow: column;
+    width: 27%;
+    margin-top: 1rem;
+    /* min-height: 15rem;
+    max-height: 100rem; */
+    place-items:center;
+    text-align: center;
+}
+
+.popularArtists img {
+border-radius: 100%;
 }
 
 
@@ -138,7 +295,87 @@ main {
 /* main */
 footer {
     grid-area: footer;
-    background-color: blue;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    background-color: #282828;
     position: sticky;
     top: 0;
+    bottom: 0;
+    padding-left: 1%;
+}
+
+footer a {
+    text-decoration: none;
+    color: #7D7F84;
+}
+
+.footer__currentSong {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.footer__currentSong__image {
+    display: grid;
+    place-items: center;
+}
+
+.footer__currentSong__image img {
+    width: 3rem;
+}
+
+.footer__currentSong__text {
+    width: 6rem;
+    padding: 30% 0 20% 10%;
+}
+
+.footer__currentSong__icons {
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    gap: 10%;
+}
+
+.footer__currentSong__icons img {
+        width: 1.4rem;
+}
+
+.footer__audioDisplay {
+    display: grid;
+    grid-template-rows: 1fr. 1fr;
+    place-items: center;
+}
+
+.footer__audioDisplay ul {
+        display: grid;
+        column-count: 5;
+        grid-auto-flow: column;
+        place-items: center;
+        list-style: none;
+}
+
+.footer__audioDisplay__icons img {
+    width: 1.6rem;
+}
+
+.footer__audioDisplay__progressBar {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 6%;
+}
+
+.footer__audioVolume {
+    width: 16rem;
+    padding: 1.9rem 1rem 1.9rem 0;
+}
+
+.footer__audioVolume ul {
+    display: grid;
+    column-count: 4;
+    grid-auto-flow: column;
+    place-items: center;
+    list-style: none;
+}
+
+.footer__audioVolume img {
+    width: 1.3rem;
 }
